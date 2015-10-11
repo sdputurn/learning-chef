@@ -76,7 +76,7 @@ end
 
 ['bacon', 'tomato_sauce'].each do |type|
 file "#{ENV['HOME']}/#{type}.txt" do
-        content "#{type} is tasty!"
+	content "#{type} is tasty!"
 end
 end
 
@@ -89,7 +89,7 @@ end
 
 bash 'echo "hello"'
 
-bash "run_my_code" do
+bash "run_my_code" do 
 code <<EOF
 mkdir "#{ENV['HOME']}/test-chef-bash-resource-created"
 EOF
@@ -116,5 +116,6 @@ to '/tmp/delicious'
 end
 
 
-package 'apache2'
+package 'httpd'
+
 
