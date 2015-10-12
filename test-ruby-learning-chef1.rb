@@ -88,12 +88,19 @@ command 'sudo reboot'
 end
 
 bash 'echo "hello"'
-
+checkupdate = 0
 bash "run_my_code" do 
 code <<EOF
-mkdir "#{ENV['HOME']}/test-chef-bash-resource-created"
+checkupdate=`find /home/vagrant/learn-chef -mmin -30 -type f |wc -l`
+echo "found count = $checkupdate" >>/home/vagrant/learn-chef/checkupdate_run_count
+if [ $checkupdate -gt 0 ]
+then
+sudo service httpd start
+fi
 EOF
 end
+
+puts checkupdate
 
 directory '/opt/my/deep/directory' do
 owner 'root'
@@ -117,5 +124,22 @@ end
 
 
 package 'httpd'
+puts checkupdate
+
+checkupdate = 0
+
+execute "check_for_sensu_check_def_update" do 
+command 'checkupdate=`find /home/vagrant/learn-chef -mmin -30 -type f |wc -l`'
+end
+
+puts checkupdate
+
+
+if checkupdate > 0 
+service 'httpd' do 
+action :start
+end
+end
+
 
 
