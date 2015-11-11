@@ -1,4 +1,3 @@
-#use this file to ignore files from git commit
 .vagrant
 Berksfile.lock
 *~
@@ -15,5 +14,3 @@ bin/*
 
 .kitchen/
 .kitchen.local.yml
-.chef/
-
