@@ -16,4 +16,4 @@ bin/*
 .kitchen/
 .kitchen.local.yml
 .chef/
-
+private_key

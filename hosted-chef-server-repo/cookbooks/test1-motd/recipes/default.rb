@@ -32,12 +32,12 @@ cookbook_file "#{ENV['HOME']}/chef_managed_test_file.txt" do
   source 'chef_managed_test_file.txt'
 end
 
-node.default['test1-motd']['secret_key'] = '/tmp/encrypted_data_bag_secret'
-my_data_bag_secret_key = Chef::EncryptedDataBagItem.load_secret( node['test1-motd']['secret_key'])
-user_password_data_bag_item = Chef::EncryptedDataBagItem.load('passwords', 'test-user-sandeep2-password', 'my_data_bag_secret_key')
-user 'sandeep2' do
+#node.default['test1-motd']['secret_key'] = '/tmp/encrypted_data_bag_secret'
+#my_data_bag_secret_key = Chef::EncryptedDataBagItem.load_secret( node['test1-motd']['secret_key'])
+#user_password_data_bag_item = Chef::EncryptedDataBagItem.load('passwords', 'test-user-sandeep2-password', 'my_data_bag_secret_key')
+user 'sandeep1' do
   comment 'test user for testing encrepted data bag'
-  password #{user_password_data_bag_item['password']}
+  password '$1$X9Mz4v/n$0Z6euT5ecJV/UpW0Oz8td.'
 end
 
 #file '/tmp/test_file_data_bag_content' do 

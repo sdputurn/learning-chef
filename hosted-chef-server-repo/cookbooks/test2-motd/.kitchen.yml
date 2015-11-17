@@ -4,21 +4,18 @@ driver:
 
 provisioner:
   name: chef_solo
-  chef_omnibus_install_options: -P chefdk
-  chef_omnibus_root: /opt/chefdk
 
 platforms:
   - name: centos65
     driver:
       box: learningchef/centos65
       box_url: learninigchef/centos65
-      network:
-        - [ "private_network", {ip: "192.168.38.35"}]
+#      network:
+#        - [ "private_network", {ip: "192.168.38.35"}]
 
 suites:
   - name: default
     run_list:
-
       - recipe[test1-motd::default]
 
     attributes:
