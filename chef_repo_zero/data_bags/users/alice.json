@@ -1,0 +1,5 @@
+{ "id": "alice",
+  "username": "alice",
+  "access": "normal",
+  "group": "root"
+}

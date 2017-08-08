@@ -1,0 +1,1 @@
+node.default['local_file_handling']['name'] = "depends_attribute"

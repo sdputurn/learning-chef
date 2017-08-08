@@ -1,0 +1,15 @@
+{
+"name": "local_file_handling_base",
+"description": "Common recipes for all nodes",
+"json_class": "Chef::Role",
+"chef_type": "role",
+"run_list": [
+"recipe[example-search]",
+"recipe[example-search::local_file_handling]"
+],
+"default_attributes": {
+"local_file_handling": {
+"name":"test_role_attributes"
+}
+}
+}
