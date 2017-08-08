@@ -1,0 +1,25 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+  chef_omnibus_install_option: -P chefdk
+  chef_omnibus_root: /opt/chefdk
+
+platforms:
+  - name: centos65
+    driver:
+      box: learningchef/centos65
+      box_url: learningchef/centos65
+      network:
+      - ["private_network", {ip: "192.168.38.34"}]
+      customize:
+        memory: 1536
+
+
+suites:
+  - name: chef-server-12
+    run_list:
+      - recipe[chef-server-12::default]
+    attributes:

@@ -1,0 +1,1 @@
+##this is chef managed test file create with remote_file chef resource
