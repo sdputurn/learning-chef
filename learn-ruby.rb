@@ -92,6 +92,16 @@ h=JSON.load(f)
 p h
 p h['name']
 p '++++++++++ file reading completed +++++++++++++'
+
+require 'net/http'
+
+uri = URI('https://jsonplaceholder.typicode.com/posts/1')
+r = Net::HTTP.get_response(uri)
+puts r.body
+
+uri = URI('https://jsonplaceholder.typicode.com/posts')
+r = Net::HTTP.post_form(uri, 'id'=>101, 'title'=> 'my first ruby post')
+puts r.body
 #A simple sorting program
 
 # arr = [2,3,10,4,17,18,15]
